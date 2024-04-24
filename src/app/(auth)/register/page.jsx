@@ -16,9 +16,6 @@ const RegisterComponent = () => {
       email: userInfo.get("email"),
       password: userInfo.get("password"),
     };
-    // if(res.ok){
-    //   router.push("/login")
-    // }
 
     const user = await registerServiceActions(newUserInfo);
     console.log(" User : ", user);

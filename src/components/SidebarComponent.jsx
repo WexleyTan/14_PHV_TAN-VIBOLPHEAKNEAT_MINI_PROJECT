@@ -6,6 +6,7 @@ import { getAllWorkSpace } from "@/service/workspace.service";
 
 export default async function SidebarComponent() {
   const data= await getAllWorkSpace();
+  console.log("Data : ",data)
   console.log(' data',data)
   return (
     <div className="pl-10 mt-6 h-screen">
@@ -21,14 +22,16 @@ export default async function SidebarComponent() {
       </div>
 
       {/* each workspace */}
-      <div className="flex items-center mt-5 w-full">
-        <div className="rounded-full w-4 h-4 bg-todo"></div>
-        <div className="flex justify-between w-full pl-3">
-          <p>HRD Design</p>
-
-          <EditDeleteDropDownComponent />
+      {getAllWorkSpace?.data?.map((data) => (
+        <div key={data?.workSpaceId} className="flex items-center mt-5 w-full">
+          <div className={data?.workSpaceId % 2 == 0 ? "rounded-full w-4 h-4 bg-green-500 " : "rounded-full w-4 h-4 bg-blue-500 " }></div>
+          <div className="flex justify-between w-full pl-3">
+            <p>{data?.workspaceName}</p>
+            <EditDeleteDropDownComponent />
+          </div>
         </div>
-      </div>
+      ))}
+      
 
       {/* favorite*/}
       <div className="flex justify-between mt-10">

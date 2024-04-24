@@ -1,9 +1,11 @@
+import { handleUserSignUp } from "@/app/lib/action";
 import Image from "next/image";
 import React from "react";
 
 export default function WorkspacePopupComponent() {
   return (
-    <div>
+    <form action={handleUserSignUp}>
+       <div>
       {/* The button to open modal */}
       <label htmlFor="my_modal_6" className="cursor-pointer">
         <Image src={"/assets/icons/plus.svg"} width={22} height={22} />
@@ -31,5 +33,8 @@ export default function WorkspacePopupComponent() {
         </div>
       </div>
     </div>
+
+    </form>
+   
   );
 }
