@@ -22,7 +22,7 @@ export default async function SidebarComponent() {
       </div>
 
       {/* each workspace */}
-      {getAllWorkSpace?.data?.map((data) => (
+      {data?.data?.map((data) => (
         <div key={data?.workSpaceId} className="flex items-center mt-5 w-full">
           <div className={data?.workSpaceId % 2 == 0 ? "rounded-full w-4 h-4 bg-green-500 " : "rounded-full w-4 h-4 bg-blue-500 " }></div>
           <div className="flex justify-between w-full pl-3">
